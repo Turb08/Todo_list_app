@@ -1,10 +1,15 @@
 import { useState } from 'react';
 import { Plus } from 'lucide-react';
-const CustomForm = () => {
+const CustomForm = ({ addTask }) => {
     const [task, setTask] = useState('');
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log(e);
+        addTask({
+            name : task,
+            checked : false,
+            id : Date.now()
+        });
+        setTask('');
     }
   return (
     <form className="todo"
