@@ -4,12 +4,20 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "bin" : {
+    "Todo_list_app" : ".bin/cli.js"
+  },
+  "files" : [
+    "dist/",
+    "bin/",
+    "public/icons"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "pnpm run build",
+    "prepublishOnly": "pnpm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
