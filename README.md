@@ -10,3 +10,32 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+```
+Todo-list-app
+├─ eslint.config.js
+├─ index.html
+├─ package.json
+├─ pnpm-lock.yaml
+├─ pnpm-workspace.yaml
+├─ public
+│  └─ vite.svg
+├─ README.md
+├─ src
+│  ├─ App.jsx
+│  ├─ assets
+│  │  └─ react.svg
+│  ├─ components
+│  │  ├─ CustomForm.jsx
+│  │  ├─ EditForm.jsx
+│  │  ├─ TaskItem.jsx
+│  │  ├─ TaskItem.module.css
+│  │  ├─ TaskList.jsx
+│  │  └─ TaskList.module.css
+│  ├─ hooks
+│  │  └─ useLocalStorage.jsx
+│  ├─ index.css
+│  └─ main.jsx
+└─ vite.config.js
+
+```
