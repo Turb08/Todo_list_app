@@ -19,16 +19,6 @@ export default defineConfig({
         start_url: ".",
         icons: [
           {
-            src: "public/icons/checktasks.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-          {
-            src: "public/icons/checklist.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-          {
             src: "public/icons/to-do-list.png",
             sizes: "512x512",
             type: "image/png",
