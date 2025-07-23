@@ -84,7 +84,7 @@ Updates: Whenever you rebuild (pnpm run build), the service worker will fetch th
 Enjoy your very own installable, offline-first Todo List PWA! 🚀
 
 
-```
+
 Added project Tree for a brief understanding of project structure
 
 Todo-list-app
@@ -117,4 +117,3 @@ Todo-list-app
 │  └─ main.jsx
 └─ vite.config.js
 
-```
