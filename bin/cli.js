@@ -9,3 +9,4 @@ const distDir = join(__dirname, "..", "dist");
 
 // serve with single-page fallback on port 4173
 serve(distDir, { port: 4173, single: true });
+console.log(`Serving ${distDir} on http://localhost:4173`);
