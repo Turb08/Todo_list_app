@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "bin" : {
-    "Todo_list_app" : ".bin/cli.js"
+    "turb-todo-list-app" : ".bin/cli.js"
   },
   "files" : [
     "dist/",
