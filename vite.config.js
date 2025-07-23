@@ -19,7 +19,7 @@ export default defineConfig({
         start_url: ".",
         icons: [
           {
-            src: "public/icons/to-do-list.png",
+            src: "icons/to-do-list.png",
             sizes: "512x512",
             type: "image/png",
           },
