@@ -40,9 +40,24 @@ Visit your app URL (e.g. http://localhost:4173).
 
 Look for the Install icon in the address bar (a “+” or computer-phone icon), or open the browser menu → Install My Todo List.
 
-Confirm the install.
+Or, if you wish to have your own icon in the desktop since chrome stores it's own chrome hosted window image, 
+you can use Microsoft Edge to install PWA and configure your preferred icon.
+
+If you already have Edge:
+
+ http://localhost:4173 in Edge.
+
+Click the “... → Apps → Install this site as an app.”
+
+Go to Start Menu, find your “My Todo List” entry, right-click → Pin to Taskbar.
+
+Now you should see your proper icon on the taskbar.
 
 Your PWA will launch in its own window and appear in your OS’s Start menu / Applications.
+
+
+
+But if you prefer to use Chrome, refer to this task below ->
 
 Tip (Chrome): Chrome’s taskbar pin will still show the Chrome icon. If you want your custom icon there, you can create a manual Windows shortcut (see below).
 
