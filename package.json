@@ -1,7 +1,7 @@
 {
   "homepage": "https://Turb08.github.io/Todo_list_app",
   "name": "turb-todo-list-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "bin": {
     "turb-todo-list-app": "./bin/cli.js"
