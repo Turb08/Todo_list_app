@@ -4,7 +4,7 @@ A React + Vite Progressive Web App (PWA) for a personal todo list that works off
 
 
 ## Project Structure
-
+```
 Todo_list_app
 ├─ bin
 │  └─ cli.js
@@ -35,7 +35,7 @@ Todo_list_app
 │  ├─ index.css
 │  └─ main.jsx
 └─ vite.config.js
-
+```
 
 ## Prerequisites
 
