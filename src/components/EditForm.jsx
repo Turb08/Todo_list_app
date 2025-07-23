@@ -1,10 +1,21 @@
-import { useState } from "react";
-import { Plus } from "lucide-react";
-import { use } from "react";
+import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
-const EditForm = ({ editedTask, updateTask }) => {
+const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
   const [updatedTaskName, setUpdatedTaskName] = useState(editedTask.name);
-  const [tasks, deleteTask] = useState("");
+
+  // Effect to handle closing the edit mode when Escape key is pressed
+  useEffect(() => {
+    const closeIfEscape = (e) => {
+      e.key === "Escape" && closeEditMode();
+    };
+
+    window.addEventListener("keydown", closeIfEscape);
+
+    return () => {
+      window.removeEventListener("keydown", closeIfEscape);
+    };
+  }, [closeEditMode]);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     updateTask({
@@ -13,7 +24,13 @@ const EditForm = ({ editedTask, updateTask }) => {
     });
   };
   return (
-    <div role="dialog" aria-labelledby="editTask">
+    <div
+      role="dialog"
+      aria-labelledby="editTask"
+      onClick={(e) => {
+        e.target === e.currentTarget && closeEditMode();
+      }}
+    >
       <form className="todo" onSubmit={handleFormSubmit}>
         <div className="wrapper">
           <input

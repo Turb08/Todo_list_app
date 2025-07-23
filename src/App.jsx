@@ -2,11 +2,14 @@ import { useState } from "react";
 import CustomForm from "./components/CustomForm";
 import EditForm from "./components/EditForm";
 import TaskList from "./components/TaskList";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  // State to manage tasks, edited task, and editing mode
+  const [tasks, setTasks] = useLocalStorage("react-todo-list", []);
   const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [previousFocusEl, setPreviousFocusEl] = useState(null);
 
   // This function will be passed to CustomForm to allow adding tasks from the form
   // and will update the tasks state in App
@@ -37,11 +40,13 @@ function App() {
 
   const closeEditMode = () => {
     setIsEditing(false);
+    previousFocusEl?.focus(); // Restore focus to the previously focused element
   };
 
   const enterEditMode = (task) => {
     setEditedTask(task);
     setIsEditing(true);
+    setPreviousFocusEl(document.activeElement); // Save the currently focused element
   };
 
   // TODO: Implement the logic to handle the editedTask state
@@ -51,7 +56,11 @@ function App() {
         <h1>My Task List</h1>
       </header>
       {isEditing && (
-        <EditForm editedTask={editedTask} updateTask={updateTask} />
+        <EditForm
+          editedTask={editedTask}
+          updateTask={updateTask}
+          closeEditMode={closeEditMode}
+        />
       )}
       {/* CustomForm component to add new tasks where it received addTask function as a prop */}
       {/* Allowing the form to add tasks to the list */}
