@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-# run-todo.sh — spin up the Todo PWA with one command
+# run-todo.sh — build & preview the Todo PWA
 
-# Exit on error
 set -e
 
-# If someone hasn’t got Node.js, warn and exit
-if ! command -v node >/dev/null 2>&1; then
-  echo "Error: Node.js is not installed. Please install Node.js (v14+) and try again."
-  exit 1
+# 1) Make sure deps are installed
+if [ ! -d node_modules ]; then
+  echo "Installing dependencies…"
+  pnpm install
 fi
 
-# Use npx to invoke your published CLI
-echo "Starting Todo PWA on http://localhost:4173 …"
-npx turb-todo-list-app
+# 2) Build the production bundle
+echo "Building…"
+pnpm run build
+
+# 3) Preview with Vite’s static server
+echo "Serving on http://localhost:4173 (respecting base path)…"
+pnpm run preview
