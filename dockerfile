@@ -10,7 +10,7 @@ RUN npm install -g pnpm && pnpm install
 COPY . .
 
 # 3. Build the PWA
-RUN pnpm run build
+RUN pnpm run build:root
 
 # 4. Ship with Nginx
 FROM nginx:alpine
