@@ -39,22 +39,90 @@ Todo_list_app
 
 ## Prerequisites
 
-* Node.js v14+ (includes npm)
-* pnpm (or npm)
-* Modern browser with PWA support (Chrome, Edge, Firefox)
-* Git (for clone workflow)
+* **Node.js** v14+ (includes `npm`/`npx`)
+* **pnpm** (or `npm`) for package scripts
+* **Git** (for clone workflows)
+* **Docker Desktop** (if using Docker)
+* A **modern browser** (Chrome, Edge, Firefox) with PWA support
 
-##  Quick Start
 
-Choose one of the following methods:
+## Quick Reference: All Access Methods to:
+## 📦 Build & Install as a PWA
 
-### 1. One-liner (no clone)
+### 1. Development Mode (Hot Reload)
+
+```bash
+pnpm install        # (or npm install)
+pnpm run dev        # serves at http://localhost:5173
+```
+
+---
+
+### 2. Build & Preview Locally (Production Bundle)
+
+```bash
+pnpm install
+pnpm run build      # generates dist/
+pnpm run preview    # serves at http://localhost:4173
+```
+
+---
+
+### 3. GitHub Pages (Static Hosting)
+
+In `package.json`, add:
+
+```json
+"homepage": "https://Turb08.github.io/Todo_list_app",
+"scripts": {
+  "predeploy": "pnpm run build",
+  "deploy":   "gh-pages -d dist"
+}
+```
+
+Then:
+
+```bash
+git push
+pnpm run deploy
+```
+
+Visit and install:
+
+```
+https://Turb08.github.io/Todo_list_app/
+```
+
+Click the browser **Install** icon.
+
+---
+
+### 4. NPX CLI (No Local Files)
+
+```bash
+npx turb-todo-list-app   # pulls from npm@latest, serves at port 4173
+```
+
+---
+
+### 5. Global or Linked CLI
+
+```bash
+npm install -g turb-todo-list-app  # or use npm link inside the project
+turb-todo-list-app                # serves at port 4173
+```
+
+---
+
+### 6. One-liner Bash Script (No Clone)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Turb08/Todo_list_app/main/run-todo.sh | bash
 ```
 
-### 2. Clone + Bash script (macOS/Linux/Git Bash)
+---
+
+### 7. Clone + Bash Script (macOS/Linux/Git Bash)
 
 ```bash
 git clone https://github.com/Turb08/Todo_list_app.git
@@ -63,7 +131,9 @@ chmod +x run-todo.sh   # if needed
 ./run-todo.sh
 ```
 
-### 3. Clone + Batch script (Windows)
+---
+
+### 8. Clone + Batch Script (Windows)
 
 ```powershell
 git clone https://github.com/Turb08/Todo_list_app.git
@@ -71,51 +141,41 @@ cd Todo_list_app
 .\run-todo.bat
 ```
 
-### 4. NPX CLI (no local files)
+---
+
+### 9. Docker (Root-Based Build, No Prefix)
 
 ```bash
-npx turb-todo-list-app
+docker pull sharehhhn18/todo-list-app:root
+docker run -it --rm -p 4173:80 sharehhhn18/todo-list-app:root
+# browse to http://localhost:4173
 ```
 
-### 5. Global CLI (after `npm install -g` or `npm link`)
+---
+
+### 10. Docker (GitHub-Pages Base)
 
 ```bash
-turb-todo-list-app
+docker pull sharehhhn18/todo-list-app:latest
+docker run -it --rm -p 4173:80 sharehhhn18/todo-list-app:latest
+# browse to http://localhost:4173/Todo_list_app/
 ```
 
-### 6. Vite Preview (manual build & serve)
+---
 
-```bash
-pnpm install       # once
-pnpm run build     # generate dist/
-pnpm run preview   # serves at http://localhost:4173
-```
+## Ports & URLs Summary
 
-### 7. Dev Mode (with hot reload)
+| Method                      | URL/Port                                                                             |
+| --------------------------- | ------------------------------------------------------------------------------------ |
+| Dev Mode                    | [http://localhost:5173](http://localhost:5173)                                       |
+| Prod Preview / CLI / Docker | [http://localhost:4173](http://localhost:4173)                                       |
+| GitHub Pages                | [https://Turb08.github.io/Todo\_list\_app/](https://Turb08.github.io/Todo_list_app/) |
 
-```bash
-pnpm install
-pnpm run dev       # serves at http://localhost:5173
-```
-
-All commands will start the PWA at [http://localhost:4173](http://localhost:4173). Open that URL in your browser and click “Install” to add it as a standalone app.
-
-## 📦 Build & Install as a PWA
+---
 
 After development, follow these steps to install the PWA:
 
-1. **Build**
-
-   ```bash
-   pnpm install
-   pnpm run build
-   ```
-2. **Serve**
-
-   ```bash
-   pnpm run preview   # or ./run-todo.sh
-   ```
-3. **Install**
+**Install**
 
    * In Chrome/Edge, visit the URL, click the “Install” icon in the address bar, or menu → *Install My Todo List*.
    * On Windows: Pin via Edge (Apps → Install this site as an app) for a custom icon, or create a shortcut (see below).
@@ -130,8 +190,14 @@ After development, follow these steps to install the PWA:
 2. Right-click → Properties → Change Icon → point to `/public/icons/to-do-list.png`.
 3. Pin to taskbar.
 
+---
+
 ## 🔄 Updates & Offline
 
-* **Offline**: After install, works without internet. No terminal needed.
-* **Update**: Re-run build (`pnpm run build`), then reload the app. The service worker auto-updates assets.
+* **Offline support:** After installing the PWA, the app works without any server or terminal running.
+* **Auto-update:** Rebuild (`pnpm run build`) and the service worker will fetch new assets on next reload.
+* All commands will start the PWA at [http://localhost:4173](http://localhost:4173). Open that URL in your browser and click “Install” to add it as a standalone app.
 
+---
+
+Keep this README handy and pick the method that fits your setup. Make better uss of this offline-first Todo List PWA! 
