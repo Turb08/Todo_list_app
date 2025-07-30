@@ -20,7 +20,7 @@ export default defineConfig({
         icons: [
           {
             src: "icons/tick_icon.png",
-            sizes: "512x512",
+            sizes: "24x24",
             type: "image/png",
           },
         ],
