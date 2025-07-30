@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
-import { use } from "react";
 const CustomForm = ({ addTask }) => {
   const [task, setTask] = useState("");
-  const [tasks, deleteTask] = useState("");
   const handleFormSubmit = (e) => {
     e.preventDefault();
     addTask({

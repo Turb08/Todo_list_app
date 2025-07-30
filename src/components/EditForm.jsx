@@ -41,7 +41,7 @@ const EditForm = ({ editedTask, updateTask, closeEditMode }) => {
             onInput={(e) => setUpdatedTaskName(e.target.value)}
             required
             autoFocus
-            maxLength={60}
+            maxLength={1000}
             placeholder="Update an existing task"
           />
           <label htmlFor="editTask" className="label">
