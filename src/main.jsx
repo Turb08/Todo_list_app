@@ -19,3 +19,10 @@ registerSW({
     console.log("🎉 App ready to work offline!");
   },
 });
+
+// Register the service worker for PWA support
+if (import.meta.env.PROD) {
+  import("virtual:pwa-register").then(({ registerSW }) => {
+    registerSW({ onOfflineReady: () => {} });
+  });
+}
