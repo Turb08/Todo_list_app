@@ -22,7 +22,7 @@ const CustomForm = ({ addTask }) => {
           onInput={(e) => setTask(e.target.value)}
           required
           autoFocus
-          maxLength={60}
+          maxLength={1000}
           placeholder="Add a new task"
         />
         <label htmlFor="task" className="label">
